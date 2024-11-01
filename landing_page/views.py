@@ -13,10 +13,10 @@ def main_page(request):
 class UserContactsView(View):
     def get(self, request):
         form = UserContactsForm()
-        return render(request, 'includes/user_contacts_form.html', {'form': form})
+        return render(request, 'main_page.html', {'form': form})
     def post(self, request):
         form = UserContactsForm(request.POST)
         if form.is_valid():
             form.save()
             return JsonResponse({'success': True})
-        return render(request, 'includes/user_contacts_form.html', {'form': form})
+        return JsonResponse({'errors': form.errors}, status=400)
