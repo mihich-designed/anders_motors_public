@@ -1,3 +1,4 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                   <div class="container-fluid">
                     <a class="navbar-brand" href="#">
@@ -7,11 +8,15 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse" idn="navbarSupportedContent">
                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{% url 'main-page' %}"><i class="fa-solid fa-phone-volume"></i> Заказать звонок</a>
-                        </li>
+                          <li class="nav-item">
+                              <div id="getUserContacts">
+                                  <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#user-contacts-modal">
+                                  <i class="fa-solid fa-phone-volume"></i> Заказать звонок</a>
+                              </div>
+                          </li>
+                          {% include 'includes/user_contacts_form.html' %}
                       </ul>
                       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -19,10 +24,19 @@
                               <i class="fa-solid fa-phone"></i> +7(921)-555-76-71</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="mailto:Snegohodkin@yandex.ru" target="_blank">
+                               <i class="fa-regular fa-envelope"></i> Snegohodkin@yandex.ru</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="https://wa.me/79215557671" target="_blank">
                                <i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                               href="https://yandex.ru/maps/org/anders_motors/75248829898?si=8by0vd379vg50tme1zn3rt93dc" target="_blank">
+                               <i class="fa-solid fa-location-dot"></i> Яндекс Карты</a>
                         </li>
                       </ul>
                     </div>
                   </div>
-                </nav>
+</nav>

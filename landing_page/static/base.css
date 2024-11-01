@@ -21,3 +21,43 @@
   font-weight: 700;
   font-style: normal;
 }
+
+html {
+ font-size: 16px;
+}
+
+body {
+ font-family: "Roboto", serif;
+ font-size: 16px;
+ font-weight: 400;
+ color: #000;
+ background-color: #fff;
+ min-width: 320px;
+}
+
+img {
+ max-width: 100%;
+ height: auto;
+}
+
+section {
+ padding: 50px 0;
+}
+
+a {
+ color: #fff;
+}
+
+a:hover {
+ color: #ff0000;
+}
+
+/* Header */
+
+.navbar-dark .navbar-nav .nav-item .nav-link {
+ color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-item .nav-link:hover {
+ color: #888;
+}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .forms import UserContactsForm
 from .models import UserContacts
@@ -6,20 +6,20 @@ from django.conf import settings
 
 # Create your views here.
 
-class MainPageView(View):
+def main_page(request):
+    return render(request, 'main_page.html')
 
+class UserContactsView(View):
     def get(self, request):
         form = UserContactsForm()
-        BASE_DIR = settings.BASE_DIR
-        return render(request, 'base.html', context={
+        return render(request, 'includes/user_contacts_form.html', context={
             'form': form,
-            'BASE_DIR': BASE_DIR,
         })
-
     def post(self, request):
         form = UserContactsForm(request.POST, instance=request.usercontacts)
         if form.is_valid():
             form.save()
-        return render(request, 'base.html', context={
+            return redirect('main-page')
+        return render(request, 'includes/user_contacts_form.html', context={
             'form': form,
         })
