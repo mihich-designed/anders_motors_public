@@ -2,13 +2,10 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .forms import UserContactsForm
 from django.http import JsonResponse
-import bleach
+
 
 
 # Create your views here.
-
-def main_page(request):
-    return render(request, 'main_page.html')
 
 class UserContactsView(View):
     def get(self, request):

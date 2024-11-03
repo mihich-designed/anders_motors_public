@@ -6,10 +6,6 @@
 {% block content %}
 
 <h1>Anders Motors</h1>
-<form method="post" action="{% url 'user-contacts-views' %}" id="myForm">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Отправить</button>
-</form>
+
 
 {% endblock %}
