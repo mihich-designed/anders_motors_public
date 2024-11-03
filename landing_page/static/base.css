@@ -60,4 +60,55 @@ a:hover {
 
 .navbar-dark .navbar-nav .nav-item .nav-link:hover {
  color: #888;
-}F
+}
+
+/* Form */
+#error-message {
+  color: red;
+  padding: 1px;
+  display: none;
+  /* Скрываем по умолчанию */
+}
+
+.usercontactsform .field {
+  display: block; /* Размещаем поля блочно */
+  margin-bottom: 10px; /* Добавляем отступ */
+}
+
+.usercontactsform label {
+   display: block;
+   margin-bottom: 5px; /* Добавляем отступ */
+}
+
+.usercontactsform input,
+.usercontactsform textarea {
+  width: 100%; /* Занимают всю ширину */
+}
+
+.btn-primary {
+ border-color:black;
+ color:black;
+ background-color: white;
+}
+
+.btn-primary:hover {
+ border-color:black;
+ color:white;
+ background-color: black;
+}
+
+.btn-secondary {
+ border-color: black;
+ color: white;
+ background-color: black;
+}
+
+.btn-secondary:hover {
+ border-color: #FF7070;
+ color: black;
+ background-color: #FF7070;
+}
+
+.btn-close:hover {
+ background-color: #FF7070;
+}
