@@ -22,6 +22,18 @@
   font-style: normal;
 }
 
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 html {
  font-size: 16px;
 }
@@ -85,30 +97,53 @@ a:hover {
   width: 100%; /* Занимают всю ширину */
 }
 
+.usercontactsform2 label {
+    display: block; /*  Размещаем  лейбл  блочно */
+    margin-bottom: 5px; /*  Добавляем  отступ  снизу  лейбла */
+}
+
+.usercontactsform2 input {
+    width: 70%;
+    padding: 8px; /*  Добавляем  отступ  для  текста */
+}
+
+.usercontactsform2 button {
+    width: 30%;
+    padding: 8px; /*  Добавляем  отступ  для  текста */
+    margin-top: 10px; /*  Добавляем  отступ  сверху  от  поля */
+}
+
 .btn-primary {
- border-color:black;
- color:black;
- background-color: white;
+border-color:black;
+color:black;
+background-color: white;
 }
 
 .btn-primary:hover {
- border-color:black;
- color:white;
- background-color: black;
+border-color:black;
+color:white;
+background-color: black;
 }
 
 .btn-secondary {
- border-color: black;
- color: white;
- background-color: black;
+border-color: black;
+color: white;
+background-color: black;
 }
 
 .btn-secondary:hover {
- border-color: #FF7070;
- color: black;
- background-color: #FF7070;
+border-color: #dc3545;
+color: black;
+background-color: #dc3545;
 }
 
 .btn-close:hover {
- background-color: #FF7070;
+background-color: #dc3545;
 }
+
+/* Carousel */
+
+h3 {
+    text-shadow: 0 0 1px black, 0 0 2px black; /*  Создаем тень, имитирующую обводку */
+}
+

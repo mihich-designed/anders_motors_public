@@ -7,11 +7,20 @@
                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                   <form method="post" action="{% url 'user-contacts-views' %}" id="myForm">
+                   <form method="post" action="{% url 'user-contacts-views' %}" id="myForm" class="usercontactsform">
                        {% csrf_token %}
                        {{ form.as_p }}
                        <button type="submit" class="btn btn-primary">Отправить</button>
                    </form>
+
+                   <div id="success-message" style="display: none;">
+                       Спасибо, скоро вам перезвоним!
+                   </div>
+
+                   <div id="error-message" style="display: none;">
+                       <p>Проверьте правильность введенных данных.</p>
+                   </div>
+                   {% include 'includes/json_response.html' %}
                </div>
                <div class="modal-footer">
                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
@@ -19,28 +28,4 @@
            </div>
        </div>
    </div>
-   <script>
-     $(document).ready(function() {
-       $('#myForm').submit(function(event) {
-         event.preventDefault(); // Предотвращаем стандартную отправку формы
 
-         var formData = $(this).serialize(); // Получаем данные формы
-
-         $.ajax({
-           url: '{% url 'user-contacts-views' %}', // URL представления Django
-           type: 'POST',
-           data: formData,
-           success: function(response) {
-             // Обработка успешной отправки (например, показ сообщения об успехе)
-             console.log(response);
-             $('#user-contacts-modal').modal('hide'); // Закрываем модальное окно
-             // Обновляем страницу или делаете что-то другое
-           },
-           error: function(error) {
-             // Обработка ошибки (например, показ сообщения об ошибке)
-             console.error(error);
-           }
-         });
-       });
-     });
-   </script>
