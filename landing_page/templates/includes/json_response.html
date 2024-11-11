@@ -3,8 +3,16 @@
     let successMessage = document.getElementById('success-message');
     let errorMessage = document.getElementById('error-message');
 
+    let isFormSubmitted = false; // Добавляем переменную для отслеживания отправки
+
     myForm.addEventListener('submit', function(event) {
       event.preventDefault();
+
+      if (isFormSubmitted) { // Проверяем, была ли форма уже отправлена
+        errorMessage.style.display = 'none'; // Убираем сообщение об ошибке
+      }
+
+      isFormSubmitted = true; // Устанавливаем флаг, что форма была отправлена
 
       const formData = new FormData(this);
 
@@ -14,32 +22,22 @@
       })
       .then(response => {
         if (!response.ok) {
-          // Если ответ сервера не успешный (status code != 200),
-          // обрабатываем ошибку
           return response.json()
             .then(data => {
-              // Выбираем первое сообщение из data.errors
-              const firstError = Object.values(data.errors);
-              throw new Error(firstError); // Перебрасываем ошибку с
-                                            // нужным сообщением
+              const firstError = Object.values(data.errors)[0];
+              throw new Error(firstError);
             });
         }
         return response.json();
       })
       .then(data => {
         if (data.success) {
-          // Закрываем форму (с помощью JavaScript):
           myForm.style.display = 'none';
-
-          // Отображаем сообщение "Спасибо":
           successMessage.style.display = 'block';
         }
       })
       .catch(error => {
-        // Обработка ошибок
         errorMessage.textContent = error.message;
-
-        // Вывод сообщения об ошибке
         errorMessage.style.display = 'block';
       });
     });

@@ -1,10 +1,18 @@
 <script>
     const myForm2 = document.getElementById('myForm2');
-    let successMessage2 = document.getElementById('success-message2'); //  Изменим  на  let
-    let errorMessage2 = document.getElementById('error-message2'); //  Изменим  на  let
+    let successMessage2 = document.getElementById('success-message2');
+    let errorMessage2 = document.getElementById('error-message2');
+
+    let isForm2Submitted = false; // Добавляем переменную для отслеживания отправки
 
     myForm2.addEventListener('submit', function(event) {
         event.preventDefault();
+
+        if (isForm2Submitted) { // Проверяем, была ли форма уже отправлена
+          errorMessage2.style.display = 'none'; // Убираем сообщение об ошибке
+        }
+
+        isForm2Submitted = true; // Устанавливаем флаг, что форма была отправлена
 
         const formData = new FormData(this);
 
@@ -16,7 +24,7 @@
             if (!response.ok) {
                 return response.json()
                     .then(data => {
-                        const firstError = Object.values(data.errors);
+                        const firstError = Object.values(data.errors)[0];
                         throw new Error(firstError);
                     });
             }
