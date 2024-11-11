@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Anders-Motors {% endblock %}
+
+{% block content %}
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 me-auto order-md-1">
+            <h1 class="roboto-bold text-center">Профессиональный ремонт и сезонное обслуживание
+                экстримальных видов
+                техники</h1>
+            <div class="p-3 mb-2 bg-dark text-white">
+                <h5 class="roboto-bold">- Гидроциклы</h5>
+                <h5 class="roboto-bold">- Снегоходы</h5>
+                <h5 class="roboto-bold">- Квадроциклы</h5>
+                <h5 class="roboto-bold">- Подвесные моторы</h5>
+            </div>
+            <br>
+            <div class="col-md-5 mx-auto">
+                <h3 class="roboto-bold text-center border-bottom border-dark">Заказать звонок</h3>
+            </div>
+            <form method="post" action="{% url 'user-contacts-views' %}" id="myForm2" class="usercontactsform2">
+                {% csrf_token %}
+                {{ form2.as_p }}
+                <button type="submit" class="btn btn-dark">Заказать</button>
+            </form>
+            <div id="success-message2" style="display: none;">
+                Спасибо, скоро вам перезвоним!
+            </div>
+            <div id="error-message2" style="display: none;">
+                <p>Проверьте правильность введенных данных.</p>
+            </div>
+            {% include 'includes/json_response_form2.html' %}
+            <br>
+            <div class="col-md-7 mx-auto">
+                <h3 class="roboto-bold text-center border-bottom border-dark">Наши преимущества</h3>
+            </div>
+            <br>
+            <div class="row">
+                <div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            Индивидуальный подход к каждому клиенту
+                        </p>
+                    </div>
+                </div>
+                <div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            Бережная транспортировка техники
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card border-dark mb-3 mx-auto" style="max-width: 36rem;">
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            Ремонт и сезонное обслуживание осуществляется как в
+                            мастерской, так и с выездом к клиенту
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-7 mx-auto">
+                <h3 class="roboto-bold text-center border-bottom border-dark">Дополнительные услуги</h3>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-3 mb-2 bg-dark text-white rounded-3">
+                        <h5 class="roboto-regular text-center">Компьютерная диагностика</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mx-auto">
+                    <div class="p-3 mb-2 bg-dark text-white rounded-3">
+                        <h5 class="roboto-regular text-center">Помощь в приобретении</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-3 mb-2 bg-dark text-white rounded-3">
+                        <h5 class="roboto-regular text-center">Ремонт и покраска гидроциклов</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mx-auto">
+                    <div class="p-3 mb-2 bg-dark text-white rounded-3">
+                        <h5 class="roboto-regular text-center">Подготовка к соревнованиям</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 ms-auto order-md-2">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+                            class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="content/anders_motors_snowmobile_1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="content/anders_motors_quadbike_1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="content/anders_motors_jetski_2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="content/anders_motors_honda_up.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <div id="carouselExampleDark2" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark2" data-bs-slide-to="0"
+                            class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark2" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark2" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark2" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="content/anders_motors_jetski_1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="content/anders_motors_snowmobile_2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="content/anders-motors-defender_1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="content/anders_motors_honda_down.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark2"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark2"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6 me-auto order-md-3">
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 ms-auto">
+
+        </div>
+
+        <div class="col-md-6 me-auto order-md-3">
+
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+
+<br>
+
+
+{% endblock %}
+
+
+
+
