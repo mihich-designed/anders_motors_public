@@ -3,7 +3,7 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <title>{% block title %} Anders Motors {% endblock %}</title>
+    <title>{% block title %} {% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- INCLUDE CSS -->
     <link rel="icon" href="{% static 'favicon.ico' %}">
@@ -22,7 +22,7 @@
 
         {% endblock %}
     </div>
-
+    {% include 'includes/footer.html' %}
 <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

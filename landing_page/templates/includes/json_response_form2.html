@@ -1,46 +1,36 @@
 <script>
-const myForm2 = document.getElementById('myForm2');
-const successMessage = document.getElementById('success-message');
-const errorMessage = document.getElementById('error-message');
+    const myForm2 = document.getElementById('myForm2');
+    let successMessage2 = document.getElementById('success-message2'); //  Изменим  на  let
+    let errorMessage2 = document.getElementById('error-message2'); //  Изменим  на  let
 
-myForm2.addEventListener('submit', function(event) {
-  event.preventDefault();
+    myForm2.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-  const formData = new FormData(this);
+        const formData = new FormData(this);
 
-  fetch(this.action, {
-    method: 'POST',
-    body: formData,
-  })
-  .then(response => {
-    if (!response.ok) {
-      // Если ответ сервера не успешный (status code != 200),
-      // обрабатываем ошибку
-      return response.json()
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json()
+                    .then(data => {
+                        const firstError = Object.values(data.errors);
+                        throw new Error(firstError);
+                    });
+            }
+            return response.json();
+        })
         .then(data => {
-          // Выбираем первое сообщение из data.errors
-          const firstError = Object.values(data.errors)[0][0];
-          throw new Error(firstError); // Перебрасываем ошибку с
-                                        // нужным сообщением
+            if (data.success) {
+                myForm2.style.display = 'none';
+                successMessage2.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            errorMessage2.textContent = error.message;
+            errorMessage2.style.display = 'block';
         });
-    }
-    return response.json();
-  })
-  .then(data => {
-    if (data.success) {
-      // Закрываем форму (с помощью JavaScript):
-      myForm2.style.display = 'none';
-
-      // Отображаем сообщение "Спасибо":
-      successMessage.style.display = 'block';
-    }
-  })
-  .catch(error => {
-    // Обработка ошибок
-    errorMessage.textContent = error.message;
-
-    // Вывод сообщения об ошибке
-    errorMessage.style.display = 'block';
-  });
-});
+    });
 </script>

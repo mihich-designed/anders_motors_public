@@ -19,8 +19,8 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-admin.site.site_header = 'Andreas Motors'
-admin.site.index_title = 'Админ'
+admin.site.site_header = 'Anders-Motors'
+admin.site.index_title = 'Все оставленные контакты находятся по ссылке User contacts'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,8 +28,8 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
-    ) + static(
-    settings.CONTENT_URL, document_root=settings.CONTENT_ROOT
-)
+     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(
+         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+     ) + static(settings.CONTENT_URL, document_root=settings.CONTENT_ROOT)
+else:
+     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

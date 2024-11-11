@@ -20,3 +20,13 @@ class UserContactsForm(forms.ModelForm):
 
         elif len(name) > 20:
             raise forms.ValidationError(f'Слишком длинное имя')
+
+
+class UserContactsForm2(UserContactsForm):
+    class Meta:
+        model = UserContacts
+        fields = ['name', 'phone_number']
+        labels = {
+            'name': 'Ваше имя',
+            'phone_number': 'Телефон',
+        }
