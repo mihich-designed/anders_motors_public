@@ -1,5 +1,5 @@
 import telebot
-import config
+from config import config
 
 bot = telebot.TeleBot(config.bot_token)
 chat_id = config.my_id
